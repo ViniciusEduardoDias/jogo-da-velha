@@ -9,12 +9,14 @@ function Home() {
   const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <div className="flex flex-col p-8 rounded border-4 border-black items-center gap-6 justify-center">
+    <div className="h-screen w-screen bg-yellow-50 flex flex-col items-center justify-center">
+      <div className="flex flex-col p-8 bg-white rounded border-4 border-black items-center gap-6 justify-center">
         <div></div>
-        <h1 className="text-3xl"> Olá, bem-vindo! </h1>
-        <h2 className="text-7xl font-bold mb-4">Jogo da Velha</h2>
-        <h3 className="text-xl font-semibold">
+        <h1 className="text-3xl font-oswald"> Olá, bem-vindo! </h1>
+        <h2 className="text-7xl text-red-700 font-bold mb-4 font-cal">
+          Jogo da Velha
+        </h2>
+        <h3 className="text-xl font-semibold font font-oswald text-blue-700">
           Escolha seus personagens e divirta-se!
         </h3>
         <div className="flex gap-4">
