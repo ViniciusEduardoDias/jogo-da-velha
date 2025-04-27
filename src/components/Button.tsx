@@ -8,7 +8,7 @@ type PropsButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 const Button = ({ text, className, children, ...rest }: PropsButton) => {
   return (
     <button
-      className={`flex justify-center font-bold font-oswald px-4 py-2 rounded border-4 items-center ${className}`}
+      className={`flex justify-center font-bold font-oswald px-4 py-2 rounded border-4 border-black items-center hover:bg-yellow-400 ${className}`}
       {...rest}
     >
       {text}

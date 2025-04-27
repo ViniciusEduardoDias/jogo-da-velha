@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import Container from "../components/Container";
 import React, { useState } from "react";
 import Modal from "../components/Modal";
 
@@ -9,27 +10,22 @@ function Home() {
   const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
 
   return (
-    <div className="h-screen w-screen bg-yellow-50 flex flex-col items-center justify-center">
-      <div className="flex flex-col p-8 bg-white rounded border-4 border-black items-center gap-6 justify-center">
+    <Container>
+      <div className="flex flex-col p-8 text-center bg-white rounded border-4 border-black items-center gap-6 justify-center">
         <div></div>
         <h1 className="text-3xl font-oswald"> Olá, bem-vindo! </h1>
         <h2 className="text-7xl text-red-700 font-bold mb-4 font-cal">
           Jogo da Velha
         </h2>
-        <h3 className="text-xl font-semibold font font-oswald text-blue-700">
+        <h3 className="text-xl text-pretty font-semibold font font-oswald text-blue-700">
           Escolha seus personagens e divirta-se!
         </h3>
         <div className="flex gap-4">
           <Button
             onClick={() => setIsAboutOpen(true)}
-            className="border-black hover:text-yellow-500 hover:border-yellow-500"
             text="Sobre o jogo"
           ></Button>
-          <Button
-            onClick={() => setIsRulesOpen(true)}
-            className="border-black hover:text-yellow-500 hover:border-yellow-500"
-            text="Regras"
-          ></Button>
+          <Button onClick={() => setIsRulesOpen(true)} text="Regras"></Button>
         </div>
         <Modal
           isOpen={isAboutOpen}
@@ -46,13 +42,9 @@ function Home() {
           titleInfo="Regras"
           content="Cada jogador escolhe seu símbolo (X ou O) e deve tentar formar uma linha com três marcas em coluna, linha ou diagonal!"
         />
-        <Button
-          onClick={() => navigate("/select")}
-          className="border-black hover:text-yellow-500 hover:border-yellow-500"
-          text="Começar"
-        ></Button>
+        <Button onClick={() => navigate("/select")} text="Começar"></Button>
       </div>
-    </div>
+    </Container>
   );
 }
 
