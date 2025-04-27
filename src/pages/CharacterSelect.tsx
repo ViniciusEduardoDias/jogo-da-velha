@@ -68,9 +68,9 @@ function CharacterSelect() {
         <Button
           onClick={() => setGameMode("1P")}
           text="1 Jogador"
-          className={`border-black hover:bg-yellow-400 ${
+          className={`${
             gameMode === "1P"
-              ? "bg-yellow-400 border-black hover:bg-none hover:border-black hover:text-black"
+              ? "bg-yellow-500 border-black hover:bg-none hover:border-black hover:text-black"
               : ""
           }`}
         />
