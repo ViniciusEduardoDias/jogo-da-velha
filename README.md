@@ -1,8 +1,8 @@
 ![screenshot do projeto](public/01.JPG)
 
-# Jogo da Velha com Modal de Fim de Jogo
+# Jogo da Velha
 
-Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possui modos para 1 jogador (contra a máquina) e 2 jogadores, utilizando React Router para navegação entre as telas e estilizações responsivas com Tailwind CSS. Um modal estilizado é exibido ao final do jogo para exibir informações relevantes.
+Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possui modos para 1 jogador (contra a máquina) e 2 jogadores, utilizando React Router para navegação entre as telas e estilizações responsivas com Tailwind CSS. 
 
 ## Funcionalidades
 
