@@ -8,82 +8,84 @@ Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possu
 
 1. Modos de Jogo
 
-1 Jogador: O jogador enfrenta uma máquina com movimentos aleatórios.
+   Modo 1 Jogador: O jogador enfrenta uma máquina com movimentos aleatórios.
 
-2 Jogadores: Dois jogadores podem jogar alternadamente no mesmo dispositivo.
+   Modo 2 Jogadores: Dois jogadores podem jogar alternadamente no mesmo dispositivo.
 
 2. Tela de Fim de Jogo
 
-Exibe o vencedor (Jogador 1, Jogador 2 ou Máquina) e a jogada vencedora.
+   Exibe o vencedor (Jogador 1, Jogador 2 ou Máquina) e a jogada vencedora.
 
-Inclui botão para reiniciar o jogo.
+   Inclui botão para reiniciar o jogo.
 
 3. Modal
 
-Modal responsivo para exibir mensagens informativas.
+   Modal responsivo para exibir mensagens informativas.
 
-Possui funcionalidade para fechar o modal manualmente.
+   Possui funcionalidade para fechar o modal manualmente.
 
 4. Estilização
 
-Layout responsivo com Tailwind CSS.
+   Layout responsivo com Tailwind CSS.
 
-Modal estilizado com suporte para textos longos e rolagem.
+   Modal estilizado com suporte para textos longos e rolagem.
 
-Tecnologias Utilizadas
+   Tecnologias Utilizadas
 
-React: Biblioteca principal para criar a interface do usuário.
+   React: Biblioteca principal para criar a interface do usuário.
 
-TypeScript: Para tipagem estática e maior segurança no código.
+   TypeScript: Para tipagem estática e maior segurança no código.
 
-React Router: Para navegação entre telas (Jogo e Tela de Fim de Jogo).
+   React Router: Para navegação entre telas (Jogo e Tela de Fim de Jogo).
 
-Tailwind CSS: Para estilização responsiva e customizada.
+   Tailwind CSS: Para estilização responsiva e customizada.
 
 # Como Executar o Projeto
 
-Clone o repositório:
+    Clone o repositório:
 
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-```
+    ```bash
+    git clone https://github.com/seu-usuario/seu-repositorio.git
+    ```
 
-Acesse o diretório do projeto:
+    Acesse o diretório do projeto:
 
-```bash
-cd seu-repositorio
-```
+    ```bash
+    cd seu-repositorio
+    ```
 
-Instale as dependências:
+    Instale as dependências:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-Inicie o servidor de desenvolvimento:
+    Inicie o servidor de desenvolvimento:
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
-No navegador, acesse:
+    No navegador, acesse:
 
-http://localhost:3000
+    http://localhost:3000
 
 # Estrutura do Projeto
 
-├── src
-├── components
-│ ├── Button.tsx # Botão reutilizável
-│ └── Container.tsx # Container para layout
-│ └── Modal.tsx # Componente de Modal
-├── pages
-| |── Home.tsx # Página de entrada
-| |── CharacterSelect.tsx # Seleção de Figuras
-│ ├── GameBoard.tsx # Lógica e interface do jogo
-│ └── GameOver.tsx # Tela de fim de jogo
-├── App.tsx # Configuração das rotas
-└── index.tsx # Ponto de entrada
+    ```bash
+    ├── src
+    ├── components
+    │ ├── Button.tsx # Botão reutilizável
+    │ └── Container.tsx # Container para layout
+    │ └── Modal.tsx # Componente de Modal
+    ├── pages
+    | |── Home.tsx # Página de entrada
+    | |── CharacterSelect.tsx # Seleção de Figuras
+    │ ├── GameBoard.tsx # Lógica e interface do jogo
+    │ └── GameOver.tsx # Tela de fim de jogo
+    ├── App.tsx # Configuração das rotas
+    └── index.tsx # Ponto de entrada
+    ```
 
 # Jogadas da Máquina
 
