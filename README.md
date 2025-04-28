@@ -1,10 +1,10 @@
 ![screenshot do projeto](public/01.JPG)
 
-## Jogo da Velha com Modal de Fim de Jogo
+# Jogo da Velha com Modal de Fim de Jogo
 
 Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possui modos para 1 jogador (contra a máquina) e 2 jogadores, utilizando React Router para navegação entre as telas e estilizações responsivas com Tailwind CSS. Um modal estilizado é exibido ao final do jogo para exibir informações relevantes.
 
-# Funcionalidades
+## Funcionalidades
 
 1. Modos de Jogo
 
@@ -40,61 +40,61 @@ Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possu
 
    Tailwind CSS: Para estilização responsiva e customizada.
 
-# Como Executar o Projeto
+## Como Executar o Projeto
 
-    Clone o repositório:
+ Clone o repositório:
 
-    ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    ```
+ ```bash
+ git clone https://github.com/seu-usuario/seu-repositorio.git
+ ```
 
-    Acesse o diretório do projeto:
+ Acesse o diretório do projeto:
 
-    ```bash
-    cd seu-repositorio
-    ```
+ ```bash
+ cd seu-repositorio
+ ```
 
-    Instale as dependências:
+ Instale as dependências:
 
-    ```bash
-    npm install
-    ```
+ ```bash
+ npm install
+ ```
 
-    Inicie o servidor de desenvolvimento:
+ Inicie o servidor de desenvolvimento:
 
-    ```bash
-    npm start
-    ```
+ ```bash
+ npm start
+ ```
 
-    No navegador, acesse:
+ No navegador, acesse:
 
-    http://localhost:3000
+ http://localhost:3000
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 
-    ```bash
-    ├── src
-    ├── components
-    │ ├── Button.tsx # Botão reutilizável
-    │ └── Container.tsx # Container para layout
-    │ └── Modal.tsx # Componente de Modal
-    ├── pages
-    | |── Home.tsx # Página de entrada
-    | |── CharacterSelect.tsx # Seleção de Figuras
-    │ ├── GameBoard.tsx # Lógica e interface do jogo
-    │ └── GameOver.tsx # Tela de fim de jogo
-    ├── App.tsx # Configuração das rotas
-    └── index.tsx # Ponto de entrada
-    ```
+ ```bash
+ ├── src
+ ├── components
+ │ ├── Button.tsx # Botão reutilizável
+ │ └── Container.tsx # Container para layout
+ │ └── Modal.tsx # Componente de Modal
+ ├── pages
+ | |── Home.tsx # Página de entrada
+ | |── CharacterSelect.tsx # Seleção de Figuras
+ │ ├── GameBoard.tsx # Lógica e interface do jogo
+ │ └── GameOver.tsx # Tela de fim de jogo
+ ├── App.tsx # Configuração das rotas
+ └── index.tsx # Ponto de entrada
+ ```
 
-# Jogadas da Máquina
+## Jogadas da Máquina
 
 Implementação de lógica simples para que a máquina escolha uma jogada aleatória.
 
-# Contribuições
+## Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests no repositório.
 
-# Licença
+## Licença
 
 Este projeto é público. Pode usar.
