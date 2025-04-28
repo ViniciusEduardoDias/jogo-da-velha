@@ -62,7 +62,7 @@ function GameOver() {
 
   return (
     <Container>
-      <div className="flex flex-col items-center justify-center gap-4 h-screen">
+      <div className="flex flex-col items-center justify-center text-center gap-4 h-screen">
         <h1 className="text-4xl font-oswald text-center">
           {getWinnerMessage()}
         </h1>

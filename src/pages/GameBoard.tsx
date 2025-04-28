@@ -160,22 +160,22 @@ function GameBoard() {
   return (
     <Container>
       <div className="flex flex-col gap-4 items-center">
-        <div className="flex w-full justify-between items-center">
+        <div className="flex flex-col md:flex-row w-full justify-between items-center">
           <Button
             text="Voltar"
             onClick={() => navigate("/")}
-            className="hover:bg-yellow-400"
+            className="absolute hover:bg-yellow-400 lef-2 top-10"
           />
           <h1 className="text-4xl font-oswald">Vez de: {currentTurn}</h1>
           <div></div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-2 md:gap-4">
           {board.map((cell, index) => (
             <button
               key={index}
               onClick={() => handleClick(index)}
-              className="w-24 h-24 md:w-28 md:h-28 border-4 border-black rounded flex items-center justify-center bg-white"
+              className="w-16 h-16 md:w-28 md:h-28 border-4 border-black rounded flex items-center justify-center bg-white"
               disabled={
                 cell !== null ||
                 (gameMode === "1P" && currentTurn === "Player2")
