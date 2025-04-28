@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 import Button from "../components/Button";
@@ -20,6 +20,7 @@ function GameBoard() {
 
   const navigate = useNavigate();
 
+  // Carregar configurações do jogo
   useEffect(() => {
     const mode = localStorage.getItem("gameMode") as "1P" | "2P" | null;
     setGameMode(mode);
@@ -40,7 +41,67 @@ function GameBoard() {
     }
   }, [navigate]);
 
-  const makeMachineMove = () => {
+  // Função para verificar o vencedor
+  const checkWinner = useCallback(
+    (newBoard: CellValue[]) => {
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      for (let combination of winningCombinations) {
+        const [a, b, c] = combination;
+        if (
+          newBoard[a] &&
+          newBoard[a] === newBoard[b] &&
+          newBoard[a] === newBoard[c]
+        ) {
+          const winner = newBoard[a];
+          let winnerName = "";
+          let winningCombination = combination;
+
+          if (gameMode === "1P") {
+            winnerName =
+              winner === player1Character
+                ? "Você venceu!"
+                : "A máquina venceu!";
+          } else {
+            winnerName =
+              winner === player1Character
+                ? "Jogador 1 venceu!"
+                : "Jogador 2 venceu!";
+          }
+
+          setTimeout(() => {
+            navigate("/gameover", {
+              state: { winner, winningCombination, winnerName },
+            });
+          }, 600);
+
+          return;
+        }
+      }
+
+      // Verificar empate
+      if (newBoard.every((cell) => cell !== null)) {
+        setTimeout(() => {
+          navigate("/gameover", {
+            state: { winner: null, winningCombination: [] },
+          });
+        }, 300);
+      }
+    },
+    [gameMode, player1Character, player2Character, navigate]
+  );
+
+  // Função para o movimento da máquina
+  const makeMachineMove = useCallback(() => {
     const emptyIndexes = board
       .map((cell, index) => (cell === null ? index : null))
       .filter((index) => index !== null) as number[];
@@ -56,8 +117,9 @@ function GameBoard() {
 
     checkWinner(newBoard);
     setCurrentTurn("Player1");
-  };
+  }, [board, player1Character, checkWinner]);
 
+  // Ativar movimento da máquina
   useEffect(() => {
     if (gameMode === "1P" && currentTurn === "Player2") {
       const timer = setTimeout(() => {
@@ -66,8 +128,24 @@ function GameBoard() {
 
       return () => clearTimeout(timer);
     }
-  }, [currentTurn, gameMode, board, player1Character]);
+  }, [currentTurn, gameMode, board, player1Character, makeMachineMove]);
 
+  // Função para pegar símbolo do jogador atual
+  const getCurrentPlayerSymbol = (): "X" | "O" => {
+    if (gameMode === "1P") {
+      return currentTurn === "Player1"
+        ? (player1Character as "X" | "O")
+        : player1Character === "X"
+        ? "O"
+        : "X";
+    } else {
+      return currentTurn === "Player1"
+        ? (player1Character as "X" | "O")
+        : (player2Character as "X" | "O");
+    }
+  };
+
+  // Função ao clicar numa célula
   const handleClick = (index: number) => {
     if (board[index] !== null) return;
 
@@ -76,72 +154,7 @@ function GameBoard() {
     setBoard(newBoard);
 
     checkWinner(newBoard);
-
     setCurrentTurn((prev) => (prev === "Player1" ? "Player2" : "Player1"));
-  };
-
-  const getCurrentPlayerSymbol = (): "X" | "O" => {
-    if (gameMode === "1P") {
-      if (currentTurn === "Player1") {
-        return player1Character as "X" | "O";
-      } else {
-        return player1Character === "X" ? "O" : "X";
-      }
-    } else {
-      return currentTurn === "Player1"
-        ? (player1Character as "X" | "O")
-        : (player2Character as "X" | "O");
-    }
-  };
-
-  const checkWinner = (newBoard: CellValue[]) => {
-    const winningCombinations = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let combination of winningCombinations) {
-      const [a, b, c] = combination;
-      if (
-        newBoard[a] &&
-        newBoard[a] === newBoard[b] &&
-        newBoard[a] === newBoard[c]
-      ) {
-        const winner = newBoard[a];
-        let winnerName = "";
-
-        if (gameMode === "1P") {
-          winnerName =
-            winner === player1Character
-              ? "Você venceu!"
-              : "A máquina venceu!";
-        } else {
-          winnerName =
-            winner === player1Character
-              ? "Jogador 1 venceu!"
-              : "Jogador 2 venceu!";
-        }
-
-        setTimeout(() => {
-          navigate("/gameover", { state: { result: winnerName } });
-        }, 300);
-
-        return;
-      }
-    }
-
-    // Verificar empate
-    if (newBoard.every((cell) => cell !== null)) {
-      setTimeout(() => {
-        navigate("/gameover", { state: { result: "Empate!" } });
-      }, 300);
-    }
   };
 
   return (
@@ -163,7 +176,10 @@ function GameBoard() {
               key={index}
               onClick={() => handleClick(index)}
               className="w-24 h-24 md:w-28 md:h-28 border-4 border-black rounded flex items-center justify-center bg-white"
-              disabled={cell !== null || (gameMode === "1P" && currentTurn === "Player2")}
+              disabled={
+                cell !== null ||
+                (gameMode === "1P" && currentTurn === "Player2")
+              }
             >
               {cell && (
                 <img
