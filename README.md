@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+![screenshot do projeto](public/01.JPG)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Jogo da Velha com Modal de Fim de Jogo
 
-## Available Scripts
+Este projeto é um jogo da velha desenvolvido em React com TypeScript. Ele possui modos para 1 jogador (contra a máquina) e 2 jogadores, utilizando React Router para navegação entre as telas e estilizações responsivas com Tailwind CSS. Um modal estilizado é exibido ao final do jogo para exibir informações relevantes.
 
-In the project directory, you can run:
+# Funcionalidades
 
-### `npm start`
+1. Modos de Jogo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1 Jogador: O jogador enfrenta uma máquina com movimentos aleatórios.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2 Jogadores: Dois jogadores podem jogar alternadamente no mesmo dispositivo.
 
-### `npm test`
+2. Tela de Fim de Jogo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Exibe o vencedor (Jogador 1, Jogador 2 ou Máquina) e a jogada vencedora.
 
-### `npm run build`
+Inclui botão para reiniciar o jogo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Modal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Modal responsivo para exibir mensagens informativas.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Possui funcionalidade para fechar o modal manualmente.
 
-### `npm run eject`
+4. Estilização
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Layout responsivo com Tailwind CSS.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Modal estilizado com suporte para textos longos e rolagem.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Tecnologias Utilizadas
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+React: Biblioteca principal para criar a interface do usuário.
 
-## Learn More
+TypeScript: Para tipagem estática e maior segurança no código.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+React Router: Para navegação entre telas (Jogo e Tela de Fim de Jogo).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Tailwind CSS: Para estilização responsiva e customizada.
+
+# Como Executar o Projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
+
+Acesse o diretório do projeto:
+
+```bash
+cd seu-repositorio
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm start
+```
+
+No navegador, acesse:
+
+http://localhost:3000
+
+# Estrutura do Projeto
+
+├── src
+├── components
+│ ├── Button.tsx # Botão reutilizável
+│ └── Container.tsx # Container para layout
+│ └── Modal.tsx # Componente de Modal
+├── pages
+| |── Home.tsx # Página de entrada
+| |── CharacterSelect.tsx # Seleção de Figuras
+│ ├── GameBoard.tsx # Lógica e interface do jogo
+│ └── GameOver.tsx # Tela de fim de jogo
+├── App.tsx # Configuração das rotas
+└── index.tsx # Ponto de entrada
+
+# Jogadas da Máquina
+
+Implementação de lógica simples para que a máquina escolha uma jogada aleatória.
+
+# Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests no repositório.
+
+# Licença
+
+Este projeto é público. Pode usar.
